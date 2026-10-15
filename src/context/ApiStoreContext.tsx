@@ -86,6 +86,8 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [activeTab, setActiveTab] = useState<'latest' | 'collections' | 'deals' | 'subscriptions'>('latest');
   const [searchQuery, setSearchQuery] = useState('');
   
+  const [activeScreen, setActiveScreen] = useState<'region_select' | 'store'>('region_select');
+  
   const [checkoutData, setCheckoutData] = useState<CheckoutCalculation | null>(null);
 
   const loadRegions = useCallback(async () => {
@@ -284,6 +286,8 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       searchQuery,
       setSearchQuery,
       searchGames,
+      activeScreen,
+      setActiveScreen,
       triggerHaptic,
     }}>
       {children}
